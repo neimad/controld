@@ -1,0 +1,9 @@
+[submodule "glib-helpers"]
+	path = src/glib-helpers
+	url = https://github.com/neimad/glib-helpers
+[submodule "cmake"]
+	path = cmake/modules
+	url = https://github.com/neimad/cmake-modules
+[submodule "cmake-modules"]
+	path = cmake-modules
+	url = https://github.com/neimad/cmake-modules

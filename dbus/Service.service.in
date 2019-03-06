@@ -1,0 +1,5 @@
+[D-BUS Service]
+Name=@DBUS_BUS_NAME@
+User=root
+SystemdService=@PROJECT_NAME@.service
+Exec=/bin/false

@@ -1,0 +1,9 @@
+[Unit]
+Description=@PROJECT_DESCRIPTION@
+Wants=systemd-udevd.service
+After=systemd-udevd.service
+
+[Service]
+Type=dbus
+BusName=@DBUS_BUS_NAME@
+ExecStart=@SERVICE_EXECUTABLE@

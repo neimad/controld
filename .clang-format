@@ -1,0 +1,39 @@
+Language: Cpp
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true
+AlignOperands: true
+AlignTrailingComments: true
+AlignEscapedNewlines: Left
+BinPackParameters: false
+PenaltyBreakBeforeFirstCallParameter: 10000
+BinPackArguments: false
+PointerAlignment: Right
+
+AllowShortFunctionsOnASingleLine: Empty
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterControlStatement: true
+    AfterFunction: true
+    AfterStruct: true
+    AfterExternBlock: true
+    BeforeElse: true
+BreakBeforeTernaryOperators: true
+ReflowComments: true
+
+SpaceAfterCStyleCast: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+
+IncludeBlocks: Regroup
+SortIncludes: true
+
+IndentWidth: 2
+ContinuationIndentWidth: 2
+TabWidth: 2
+UseTab: Never
+ColumnLimit: 80
+IndentCaseLabels: true
+IndentPPDirectives: AfterHash
+
+KeepEmptyLinesAtTheStartOfBlocks: false

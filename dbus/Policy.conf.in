@@ -1,0 +1,10 @@
+<!DOCTYPE busconfig PUBLIC "-//freedesktop//DTD D-Bus Bus Configuration 1.0//EN" "https://specifications.freedesktop.org/dbus/1.0/busconfig.dtd">
+<busconfig>
+    <policy user="root">
+        <allow own="@DBUS_BUS_NAME@" />
+    </policy>
+    <policy context="default">
+        <allow send_destination="@DBUS_BUS_NAME@" />
+        <allow receive_sender="@DBUS_BUS_NAME@" />
+    </policy>
+</busconfig>
