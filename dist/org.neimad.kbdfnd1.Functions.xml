@@ -1,0 +1,59 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "https://specifications.freedesktop.org/dbus/1.0/introspect.dtd">
+<node>
+  <!--
+    org.neimad.kbdfnd1.Functions:
+    The interface for controlling the machine using the keyboard function keys.
+  -->
+  <interface name="org.neimad.kbdfnd1.Functions">
+    <!--
+      ScreenBacklightIncrease:
+      Emitted when the screen backlight level should be increased by one step.
+    -->
+    <signal name="ScreenBacklightIncrease" />
+    <!--
+      ScreenBacklightDecrease:
+      Emitted when the screen backlight level should be decreased by one step.
+    -->
+    <signal name="ScreenBacklightDecrease" />
+    <!--
+      VolumeIncrease:
+      Emitted when the volume should be increased by one step.
+    -->
+    <signal name="VolumeIncrease" />
+    <!--
+      VolumeDecrease:
+      Emitted when the volume should be decreased by one step.
+    -->
+    <signal name="VolumeDecrease" />
+    <!--
+      VolumeMute:
+      Emitted when the audio volume should be toggled muted/unmuted.
+    -->
+    <signal name="VolumeMute" />
+    <!--
+      MediaPlayerPlayPause:
+      Emitted when the current media should be played/paused.
+    -->
+    <signal name="MediaPlayerPlayPause" />
+    <!--
+      MediaPlayerPrevious:
+      Emitted when the previous media should be selected.
+    -->
+    <signal name="MediaPlayerPrevious" />
+    <!--
+      MediaPlayerNext:
+      Emitted when the next media should be selected.
+    -->
+    <signal name="MediaPlayerNext" />
+    <!--
+      Search:
+      Emitted when the search application/widget should be launched.
+    -->
+    <signal name="Search" />
+    <!--
+      AirplaneMode:
+      Emitted when all radio-frequency devices should be toggled on/off.
+    -->
+    <signal name="AirplaneMode" />
+  </interface>
+</node>

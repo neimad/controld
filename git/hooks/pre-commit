@@ -1,0 +1,5 @@
+#! /bin/sh
+
+# Generate the distributed files
+cmake -P dist/Dist.cmake
+git add dist/*

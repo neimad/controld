@@ -16,6 +16,4 @@ The following functions are supported:
 
 ## D-Bus interface
 
-The events are notified through D-Bus signals declared in a [D-Bus interface][dbus-interface].
-
-[dbus-interface]: dbus/Functions.xml.in
+The events are notified through D-Bus signals declared in a D-Bus interface (see [the `dist` directory](dist)).
