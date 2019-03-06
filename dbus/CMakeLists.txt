@@ -11,14 +11,14 @@ install_configured_file(Service.service.in ${DBUS_BUS_NAME}.service
 install_configured_file(Policy.conf.in ${DBUS_BUS_NAME}.conf
                         DESTINATION ${DBUS_INSTALL_SYSTEM_POLICIES_DIR})
 
-install_configured_file(Functions.xml.in ${DBUS_BUS_NAME}.Functions.xml
+install_configured_file(Controls.xml.in ${DBUS_BUS_NAME}.Controls.xml
                         DESTINATION ${DBUS_INSTALL_INTERFACES_DIR})
 
-gdbus_generate_code(${CMAKE_CURRENT_BINARY_DIR}/${DBUS_BUS_NAME}.Functions.xml
+gdbus_generate_code(${CMAKE_CURRENT_BINARY_DIR}/${DBUS_BUS_NAME}.Controls.xml
                     PREFIX ${DBUS_BUS_NAME}
-                    NAMESPACE Kbdbus
+                    NAMESPACE DBus
                     PRAGMA_ONCE)
 
-add_library(${target} STATIC KbdbusFunctions.c)
+add_library(${target} STATIC DBusControls.c)
 target_required_modules(${target} MODULES gio-unix-2.0)
 target_compile_options(${target} PUBLIC -Wno-unused-parameter)

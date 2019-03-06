@@ -1,12 +1,12 @@
 #include "DBusService.h"
 
-#include "KbdbusFunctions.h"
+#include "DBusControls.h"
 #include "glib-helpers/glib-object-helpers.h"
 
 struct _DBusService
 {
   GObject parent;
-  KbdbusFunctions *interface;
+  DBusControls *interface;
   gchar *object_path;
   GDBusConnection *connection;
 };
@@ -17,7 +17,7 @@ enum { PROPERTY_OBJECT_PATH = 1, N_PROPERTIES };
 
 static void dbus_service_init(DBusService *self)
 {
-  self->interface = kbdbus_functions_skeleton_new();
+  self->interface = dbus_controls_skeleton_new();
 }
 
 static void dbus_service_set_property(DBusService *self,

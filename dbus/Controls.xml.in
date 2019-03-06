@@ -1,10 +1,10 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "https://specifications.freedesktop.org/dbus/1.0/introspect.dtd">
 <node>
   <!--
-    @DBUS_BUS_NAME@.Functions:
-    The interface for controlling the machine using the keyboard function keys.
+    @DBUS_BUS_NAME@.Controls:
+    The interface for controlling the computer functions.
   -->
-  <interface name="@DBUS_BUS_NAME@.Functions">
+  <interface name="@DBUS_BUS_NAME@.Controls">
     <!--
       ScreenBacklightIncrease:
       Emitted when the screen backlight level should be increased by one step.

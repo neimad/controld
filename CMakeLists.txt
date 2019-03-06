@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.13)
 include(${CMAKE_SOURCE_DIR}/cmake/Config.cmake)
 
 project(${PROJECT_NAME}
-        DESCRIPTION "A keyboard function keys daemon."
+        DESCRIPTION "A keyboard controls daemon."
         HOMEPAGE_URL "https://github.com/neimad/kdbfnd"
         VERSION 0.1
         LANGUAGES C)

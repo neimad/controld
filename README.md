@@ -1,19 +1,17 @@
-# kbdfnd
-_Keyboard Function keys Daemon_
+# controld
 
+**controld** is a daemon which notify through D-Bus about control events triggered by the special keys.
 
-**kbdfnd** is a daemon which notify through D-Bus about control events triggered by the function keys (using the ``Fn`` key).
+## D-Bus interface
 
-## Supported functions
+The events are notified through D-Bus signals declared in a D-Bus interface (see [the `dist` directory](dist)).
 
-The following functions are supported:
+## Supported controls
+
+The following controls are supported:
 
  - screen backlight,
  - audio volume,
  - media player,
  - search,
  - airplane mode (RF kill).
-
-## D-Bus interface
-
-The events are notified through D-Bus signals declared in a D-Bus interface (see [the `dist` directory](dist)).
