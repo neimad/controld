@@ -6,7 +6,6 @@
 #include "KeyboardsSource.h"
 #include "config.h"
 
-#include <gio/gio.h>
 #include <glib-unix.h>
 
 typedef struct _Application

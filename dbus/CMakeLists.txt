@@ -20,5 +20,6 @@ gdbus_generate_code(${CMAKE_CURRENT_BINARY_DIR}/${DBUS_BUS_NAME}.Controls.xml
                     PRAGMA_ONCE)
 
 add_library(${target} STATIC DBusControls.c)
-target_required_modules(${target} MODULES gio-unix-2.0)
-target_compile_options(${target} PUBLIC -Wno-unused-parameter)
+target_required_modules(${target} PUBLIC gio-unix-2.0)
+target_include_directories(${target} INTERFACE ${CMAKE_CURRENT_BINARY_DIR})
+target_compile_options(${target} PRIVATE -Wno-unused-parameter)
