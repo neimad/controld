@@ -56,7 +56,8 @@ open_device(const gchar *path, gint flags, void *user_data G_GNUC_UNUSED)
  *
  * See #libinput_interface.close_restricted.
  */
-static void close_device(gint fd, void *user_data G_GNUC_UNUSED)
+static void
+close_device(gint fd, void *user_data G_GNUC_UNUSED)
 {
   if (close(fd) == -1)
   {
@@ -84,7 +85,8 @@ static struct libinput_interface libinput_interface = {
  *
  * Returns: TRUE on the first keyboard event found.
  */
-static gboolean keyboards_source_check(KeyboardsSource *self)
+static gboolean
+keyboards_source_check(KeyboardsSource *self)
 {
   if (libinput_dispatch(self->libinput) < 0)
   {
@@ -116,9 +118,10 @@ static gboolean keyboards_source_check(KeyboardsSource *self)
  *
  * Returns: %G_SOURCE_CONTINUE
  */
-static gboolean keyboards_source_dispatch(KeyboardsSource *self,
-                                          KeyboardsSourceFunc handler,
-                                          gpointer user_data)
+static gboolean
+keyboards_source_dispatch(KeyboardsSource *self,
+                          KeyboardsSourceFunc handler,
+                          gpointer user_data)
 {
   struct libinput_event *event                   = NULL;
   struct libinput_event_keyboard *keyboard_event = NULL;
@@ -149,7 +152,8 @@ static gboolean keyboards_source_dispatch(KeyboardsSource *self,
   return G_SOURCE_CONTINUE;
 }
 
-static void keyboards_source_finalize(KeyboardsSource *self)
+static void
+keyboards_source_finalize(KeyboardsSource *self)
 {
   libinput_unref(self->libinput);
   udev_unref(self->udev);
@@ -162,7 +166,8 @@ static GSourceFuncs keyboards_source_funcs = {
   .finalize = SOURCE_FINALIZE_FUNC(keyboards_source_finalize),
 };
 
-static void keyboards_source_init(KeyboardsSource *self)
+static void
+keyboards_source_init(KeyboardsSource *self)
 {
   g_return_if_fail(self != NULL);
 
@@ -191,7 +196,8 @@ static void keyboards_source_init(KeyboardsSource *self)
                        G_IO_IN | G_IO_HUP | G_IO_ERR);
 }
 
-GSource *keyboards_source_new(void)
+GSource *
+keyboards_source_new(void)
 {
   GSource *source                   = NULL;
   KeyboardsSource *keyboards_source = NULL;

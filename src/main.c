@@ -16,7 +16,8 @@ typedef struct _Application
   guint keyboards_source_id;
 } Application;
 
-void handle_key_change(KeyCode code, KeyState state, DBusService *service)
+void
+handle_key_change(KeyCode code, KeyState state, DBusService *service)
 {
   gchar *signal_name = NULL;
 
@@ -60,9 +61,10 @@ void handle_key_change(KeyCode code, KeyState state, DBusService *service)
   }
 }
 
-void init_application(GDBusConnection *connection,
-                      const gchar *name G_GNUC_UNUSED,
-                      Application *app)
+void
+init_application(GDBusConnection *connection,
+                 const gchar *name G_GNUC_UNUSED,
+                 Application *app)
 {
   GSource *source = NULL;
 
@@ -83,14 +85,16 @@ void init_application(GDBusConnection *connection,
   g_message("Listening on keyboards...");
 }
 
-void run_application(GDBusConnection *connection G_GNUC_UNUSED,
-                     const gchar *name,
-                     Application *app G_GNUC_UNUSED)
+void
+run_application(GDBusConnection *connection G_GNUC_UNUSED,
+                const gchar *name,
+                Application *app G_GNUC_UNUSED)
 {
   g_message("Acquired D-Bus name %s.", name);
 }
 
-void quit_application(Application *app)
+void
+quit_application(Application *app)
 {
   g_message("Exiting...");
 
@@ -106,9 +110,10 @@ void quit_application(Application *app)
   g_main_loop_quit(app->loop);
 }
 
-void cancel_application(GDBusConnection *connection,
-                        const gchar *name,
-                        Application *app)
+void
+cancel_application(GDBusConnection *connection,
+                   const gchar *name,
+                   Application *app)
 {
   if (connection == NULL)
   {
@@ -122,7 +127,8 @@ void cancel_application(GDBusConnection *connection,
   quit_application(app);
 }
 
-int main(void)
+int
+main(void)
 {
   Application app = {NULL};
 

@@ -29,7 +29,8 @@ typedef uint32_t KeyCode;
  *
  * A key state.
  */
-typedef enum _KeyState {
+typedef enum _KeyState
+{
   KEY_STATE_PRESSED  = LIBINPUT_KEY_STATE_PRESSED,
   KEY_STATE_RELEASED = LIBINPUT_KEY_STATE_RELEASED,
 } KeyState;

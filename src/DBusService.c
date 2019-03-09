@@ -17,17 +17,23 @@ struct _DBusService
 
 G_DEFINE_TYPE(DBusService, dbus_service, G_TYPE_OBJECT)
 
-enum { PROPERTY_OBJECT_PATH = 1, N_PROPERTIES };
+enum
+{
+  PROPERTY_OBJECT_PATH = 1,
+  N_PROPERTIES
+};
 
-static void dbus_service_init(DBusService *self)
+static void
+dbus_service_init(DBusService *self)
 {
   self->interface = dbus_controls_skeleton_new();
 }
 
-static void dbus_service_set_property(DBusService *self,
-                                      guint property_id,
-                                      const GValue *value,
-                                      GParamSpec *spec)
+static void
+dbus_service_set_property(DBusService *self,
+                          guint property_id,
+                          const GValue *value,
+                          GParamSpec *spec)
 {
   switch (property_id)
   {
@@ -43,7 +49,8 @@ static void dbus_service_set_property(DBusService *self,
   }
 }
 
-static void dbus_service_dispose(DBusService *self)
+static void
+dbus_service_dispose(DBusService *self)
 {
   g_dbus_interface_skeleton_unexport_from_connection(G_DBUS_INTERFACE_SKELETON(
                                                        self->interface),
@@ -55,14 +62,16 @@ static void dbus_service_dispose(DBusService *self)
   G_OBJECT_CLASS(dbus_service_parent_class)->dispose(G_OBJECT(self));
 }
 
-static void dbus_service_finalize(DBusService *self)
+static void
+dbus_service_finalize(DBusService *self)
 {
   g_clear_pointer(&self->object_path, g_free);
 
   G_OBJECT_CLASS(dbus_service_parent_class)->finalize(G_OBJECT(self));
 }
 
-static void dbus_service_class_init(DBusServiceClass *klass)
+static void
+dbus_service_class_init(DBusServiceClass *klass)
 {
   GObjectClass *object_class           = G_OBJECT_CLASS(klass);
   GParamSpec *properties[N_PROPERTIES] = {
@@ -84,14 +93,16 @@ static void dbus_service_class_init(DBusServiceClass *klass)
   g_object_class_install_properties(object_class, N_PROPERTIES, properties);
 }
 
-DBusService *dbus_service_new(const gchar *object_path)
+DBusService *
+dbus_service_new(const gchar *object_path)
 {
   g_return_val_if_fail(object_path != NULL, NULL);
 
   return g_object_new(DBUS_TYPE_SERVICE, "object-path", object_path, NULL);
 }
 
-void dbus_service_register(DBusService *self, GDBusConnection *connection)
+void
+dbus_service_register(DBusService *self, GDBusConnection *connection)
 {
   g_return_if_fail(DBUS_IS_SERVICE(self));
   g_return_if_fail(G_IS_DBUS_CONNECTION(connection));
@@ -109,7 +120,8 @@ void dbus_service_register(DBusService *self, GDBusConnection *connection)
                                    NULL);
 }
 
-void dbus_service_emit_signal(DBusService *self, const gchar *signal_name)
+void
+dbus_service_emit_signal(DBusService *self, const gchar *signal_name)
 {
   g_return_if_fail(DBUS_IS_SERVICE(self));
   g_return_if_fail(signal_name != NULL);

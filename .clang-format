@@ -6,20 +6,24 @@ AlignOperands: true
 AlignTrailingComments: true
 AlignEscapedNewlines: Left
 BinPackParameters: false
-PenaltyBreakBeforeFirstCallParameter: 10000
 BinPackArguments: false
 PointerAlignment: Right
 
 AllowShortFunctionsOnASingleLine: Empty
+AlwaysBreakAfterReturnType: TopLevelDefinitions
 BreakBeforeBraces: Custom
 BraceWrapping:
-    AfterControlStatement: true
-    AfterFunction: true
+    AfterEnum: true
     AfterStruct: true
-    AfterExternBlock: true
+    AfterUnion: true
+    AfterFunction: true
+    AfterControlStatement: true
     BeforeElse: true
+    AfterExternBlock: true
 BreakBeforeTernaryOperators: true
 ReflowComments: true
+
+PenaltyBreakBeforeFirstCallParameter: 10000
 
 SpaceAfterCStyleCast: true
 SpaceBeforeAssignmentOperators: true
