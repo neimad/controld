@@ -5,7 +5,6 @@
 #pragma once
 
 #include <gio/gio.h>
-#include <glib-object.h>
 
 /**
  * DBusService:
