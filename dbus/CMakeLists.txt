@@ -3,8 +3,6 @@ include(TargetModules)
 include(InstallConfiguredFile)
 include(DBusInstallDirs)
 
-set(target ${PROJECT_NAME}-dbus)
-
 install_configured_file(Service.service.in ${DBUS_BUS_NAME}.service
                         DESTINATION ${DBUS_INSTALL_SYSTEM_SERVICES_DIR})
 
@@ -19,7 +17,7 @@ gdbus_generate_code(${CMAKE_CURRENT_BINARY_DIR}/${DBUS_BUS_NAME}.Controls.xml
                     NAMESPACE DBus
                     PRAGMA_ONCE)
 
-add_library(${target} STATIC DBusControls.c)
-target_required_modules(${target} PUBLIC gio-unix-2.0)
-target_include_directories(${target} INTERFACE ${CMAKE_CURRENT_BINARY_DIR})
-target_compile_options(${target} PRIVATE -Wno-unused-parameter)
+add_library(controld-dbus STATIC DBusControls.c)
+target_required_modules(controld-dbus PUBLIC gio-unix-2.0)
+target_include_directories(controld-dbus INTERFACE ${CMAKE_CURRENT_BINARY_DIR})
+target_compile_options(controld-dbus PRIVATE -Wno-unused-parameter)
