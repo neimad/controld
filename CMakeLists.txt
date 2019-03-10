@@ -5,7 +5,7 @@ include(${CMAKE_SOURCE_DIR}/cmake/Config.cmake)
 project(${PROJECT_NAME}
         DESCRIPTION "A keyboard controls daemon."
         HOMEPAGE_URL "https://github.com/neimad/kdbfnd"
-        VERSION 0.1
+        VERSION 0.1.0
         LANGUAGES C)
 
 include(TargetModules)
